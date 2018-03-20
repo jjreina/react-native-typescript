@@ -1,21 +1,21 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 
-export default class App extends React.Component<{}, {}> {
-  render() {
-    let pic: any = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    }
-    const text: string = 'Open up App.js to start working on your app!'
-    return (
-      <View style={styles.container}>
-        <Image source={pic} style={{width: 193, height: 110}}/>
-        <Text>{text}</Text>
-        <Text>{text}</Text>
-        <Text>{text}</Text>
-      </View>
-    )
+// tslint:disable-next-line:variable-name
+const App: React.StatelessComponent<{}> = () => {
+  let pic: any = {
+    uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
   }
+  const text: string = 'Open up App.js to start working on your app!'
+
+  return (
+    <View style={styles.container}>
+      <Image source={pic} style={{width: 193, height: 110}}/>
+      <Text>{text}</Text>
+      <Text>{text}</Text>
+      <Text>{text}</Text>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -26,3 +26,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 })
+
+export default App
