@@ -23,12 +23,12 @@ export default class App extends React.Component<Props, State> {
         title='Click Here'
         checked={this.state.checked}
         containerStyle={{marginTop: 30}}
-        onPress={this.onPess}
+        onPress={this.onPress}
       />
     )
   }
 
-  private onPess = () => {
+  private onPress = () => {
     this.setState({ checked: !this.state.checked})
   }
 
