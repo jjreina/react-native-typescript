@@ -12,6 +12,9 @@ export default class Main extends React.Component<{}, State> {
             todos: [
                 {
                     task: 'Learn React Native'
+                },
+                {
+                    task: 'Learn Redux'
                 }
             ]
         }
@@ -19,7 +22,9 @@ export default class Main extends React.Component<{}, State> {
 
     public render() {
         return (
-            <TaskList />
+            <TaskList
+                todos={this.state.todos}
+            />
         )
     }
 }
