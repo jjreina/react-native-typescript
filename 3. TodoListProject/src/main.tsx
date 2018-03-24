@@ -23,8 +23,13 @@ export default class Main extends React.Component<{}, State> {
     public render() {
         return (
             <TaskList
+                onAddStarted={this.onAddStarted}
                 todos={this.state.todos}
             />
         )
+    }
+
+    private onAddStarted = () => {
+       console.log('On add started')
     }
 }
