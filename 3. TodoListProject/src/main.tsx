@@ -1,35 +1,26 @@
 import * as React from 'react'
-import TaskList from './TaskList'
+import { StackNavigator } from 'react-navigation'
+import { HomeScreen } from './screens/HomeScreen'
+import { FormAddTaskScreen } from './screens/FormAddTaskScreen'
 
-interface State {
-    todos: any[]
-}
-
-export default class Main extends React.Component<{}, State> {
-    constructor(props, context) {
-        super(props, context)
-        this.state = {
-            todos: [
-                {
-                    task: 'Learn React Native'
-                },
-                {
-                    task: 'Learn Redux'
-                }
-            ]
+// tslint:disable-next-line:variable-name
+const RootStack = StackNavigator (
+    {
+        Home: {
+            screen: HomeScreen
+        },
+        FormTask: {
+            screen: FormAddTaskScreen
         }
+    },
+    {
+        initialRouteName: 'Home',
+        headerMode: 'none'
     }
+)
 
-    public render() {
-        return (
-            <TaskList
-                onAddStarted={this.onAddStarted}
-                todos={this.state.todos}
-            />
-        )
-    }
-
-    private onAddStarted = () => {
-       console.log('On add started')
+export default class App extends React.Component {
+    render() {
+      return <RootStack />
     }
 }
