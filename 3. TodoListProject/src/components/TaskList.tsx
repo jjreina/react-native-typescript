@@ -13,11 +13,6 @@ const styles = StyleSheet.create({
     button: {
         borderRadius: 15,
         margin: 20
-    },
-    buttonText: {
-        color: '#FAFAFA',
-        fontSize: 20,
-        fontWeight: '600'
     }
 })
 
