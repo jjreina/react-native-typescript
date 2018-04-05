@@ -2,7 +2,9 @@ import * as React from 'react'
 import { View, TextInput, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
 
-interface Props {}
+interface Props {
+  navigation: any
+}
 
 interface State {
   task: string
@@ -51,7 +53,9 @@ export class FormAddTaskScreen extends React.Component<Props, State> {
   public render() {
     return (
         <View style={styles.container}>
-            <TextInput style={styles.input}
+            <TextInput
+              style={styles.input}
+              onChangeText={this.onChangeText}
             />
             <Button
                 onPress={this.onPressAdd}
@@ -67,11 +71,21 @@ export class FormAddTaskScreen extends React.Component<Props, State> {
     )
   }
 
+  private onChangeText = (text: string) => {
+    this.setState({
+      task: text
+    })
+  }
+
   private onPressAdd = () => {
-    console.log('Add')
+    const { params } = this.props.navigation.state
+    params.todos.push({'task': this.state.task})
+    this.props.navigation.navigate('Home', {
+      todosUpdated: params.todos
+    })
   }
 
   private onPressCancel = () => {
-    console.log('Cancel')
+    this.props.navigation.goBack()
   }
 }

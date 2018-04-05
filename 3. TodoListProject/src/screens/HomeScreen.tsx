@@ -24,6 +24,17 @@ export class HomeScreen extends React.Component<Props, State> {
         }
     }
 
+    // tslint:disable-next-line:member-ordering
+    didBlurSubscription = this.props.navigation.addListener(
+        'willFocus',
+        () => {
+          const { params } = this.props.navigation.state
+          if (params !== undefined) {
+            this.setState({ todos: params.todosUpdated })
+          }
+        }
+    )
+
     public render() {
         return (
             <TaskList
@@ -34,6 +45,8 @@ export class HomeScreen extends React.Component<Props, State> {
     }
 
     private onAddStarted = () => {
-        this.props.navigation.navigate('FormTask')
+        this.props.navigation.navigate('FormTask', {
+            todos: this.state.todos
+          })
     }
 }

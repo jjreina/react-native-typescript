@@ -38,6 +38,11 @@ export default class TaskList extends React.Component<Props, State> {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        const dataSource = this.state.dataSource.cloneWithRows(nextProps.todos)
+        this.setState({ dataSource })
+    }
+
     public render() {
         return (
             <View style={styles.container}>
