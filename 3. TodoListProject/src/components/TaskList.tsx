@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
 
 interface Props {
     todos: any[],
-    onAddStarted: any
+    onAddStarted: any,
+    onClickDone: any
 }
 
 interface State {
@@ -61,7 +62,10 @@ export default class TaskList extends React.Component<Props, State> {
 
     private renderRow = (todo: any) => {
         return (
-            <TaskRow todo={todo}/>
+            <TaskRow
+                todo={todo}
+                onClickDone={this.props.onClickDone}
+            />
         )
     }
 }

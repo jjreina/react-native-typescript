@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { Button } from 'react-native-elements'
 
 const styles = StyleSheet.create({
     container: {
@@ -17,11 +18,17 @@ const styles = StyleSheet.create({
     label: {
         fontSize: 20,
         fontWeight: '300'
+    },
+    button: {
+        borderRadius: 5,
+        padding: 5,
+        backgroundColor: '#EAEAEA'
     }
 })
 
 interface Props {
-    todo: any
+    todo: any,
+    onClickDone: any
 }
 
 export class TaskRow extends React.Component<Props, {}> {
@@ -36,7 +43,17 @@ export class TaskRow extends React.Component<Props, {}> {
                 <Text style={styles.label}>
                     {todo.task}
                 </Text>
+                <Button
+                    onPress={this.onClickDone}
+                    title='Done'
+                    buttonStyle={styles.button}
+                    textStyle={{color: 'black'}}
+                />
             </View>
         )
+    }
+
+    private onClickDone = () => {
+        this.props.onClickDone(this.props.todo.task)
     }
 }

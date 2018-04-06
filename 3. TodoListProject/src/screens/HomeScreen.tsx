@@ -40,6 +40,7 @@ export class HomeScreen extends React.Component<Props, State> {
             <TaskList
                 onAddStarted={this.onAddStarted}
                 todos={this.state.todos}
+                onClickDone={this.onClickDone}
             />
         )
     }
@@ -49,4 +50,13 @@ export class HomeScreen extends React.Component<Props, State> {
             todos: this.state.todos
           })
     }
+
+    private onClickDone = (task) => {
+        this.setState((prevState) => ({
+            todos: prevState.todos.filter(element => {
+                return (element.task !== task)
+            })
+        }))
+    }
+
 }
