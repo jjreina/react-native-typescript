@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { Button } from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 
 const styles = StyleSheet.create({
     container: {
@@ -43,11 +43,13 @@ export class TaskRow extends React.Component<Props, {}> {
                 <Text style={styles.label}>
                     {todo.task}
                 </Text>
-                <Button
+                <Icon
+                    reverse
+                    reverseColor='white'
+                    color='#9E9E9E'
+                    name='done'
+                    size={10}
                     onPress={this.onClickDone}
-                    title='Done'
-                    buttonStyle={styles.button}
-                    textStyle={{color: 'black'}}
                 />
             </View>
         )
