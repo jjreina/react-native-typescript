@@ -1,5 +1,6 @@
 import * as React from 'react'
 import TaskList from '../components/TaskList'
+import store from '../todoStore'
 
 interface State {
     todos: any[]
@@ -12,16 +13,7 @@ interface Props {
 export class HomeScreen extends React.Component<Props, State> {
     constructor(props, context) {
         super(props, context)
-        this.state = {
-            todos: [
-                {
-                    task: 'Learn React Native'
-                },
-                {
-                    task: 'Learn Redux'
-                }
-            ]
-        }
+        this.state = store.getState()
     }
 
     // tslint:disable-next-line:member-ordering

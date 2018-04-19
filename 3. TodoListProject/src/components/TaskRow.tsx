@@ -13,16 +13,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: 20,
         marginRight: 20,
-        marginLeft: 20
+        marginLeft: 20,
+        alignItems: 'center'
     },
     label: {
         fontSize: 20,
         fontWeight: '300'
-    },
-    button: {
-        borderRadius: 5,
-        padding: 5,
-        backgroundColor: '#EAEAEA'
     }
 })
 
@@ -48,7 +44,6 @@ export class TaskRow extends React.Component<Props, {}> {
                     reverseColor='white'
                     color='#9E9E9E'
                     name='done'
-                    size={10}
                     onPress={this.onClickDone}
                 />
             </View>
