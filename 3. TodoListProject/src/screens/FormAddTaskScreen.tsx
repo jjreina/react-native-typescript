@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { View, TextInput, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
+import store from '../todoStore'
 
 interface Props {
   navigation: any
@@ -78,11 +79,11 @@ export class FormAddTaskScreen extends React.Component<Props, State> {
   }
 
   private onPressAdd = () => {
-    const { params } = this.props.navigation.state
-    params.todos.push({'task': this.state.task})
-    this.props.navigation.navigate('Home', {
-      todosUpdated: params.todos
+    store.dispatch({
+      type: 'ADD_TODO',
+      task: this.state.task
     })
+    this.props.navigation.navigate('Home', {})
   }
 
   private onPressCancel = () => {

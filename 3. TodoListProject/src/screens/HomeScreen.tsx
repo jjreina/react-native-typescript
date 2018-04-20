@@ -14,18 +14,11 @@ export class HomeScreen extends React.Component<Props, State> {
     constructor(props, context) {
         super(props, context)
         this.state = store.getState()
-    }
 
-    // tslint:disable-next-line:member-ordering
-    didBlurSubscription = this.props.navigation.addListener(
-        'willFocus',
-        () => {
-          const { params } = this.props.navigation.state
-          if (params !== undefined) {
-            this.setState({ todos: params.todosUpdated })
-          }
-        }
-    )
+        store.subscribe( () => {
+            this.setState(store.getState())
+        })
+    }
 
     public render() {
         return (
@@ -44,11 +37,10 @@ export class HomeScreen extends React.Component<Props, State> {
     }
 
     private onClickDone = (task) => {
-        this.setState((prevState) => ({
-            todos: prevState.todos.filter(element => {
-                return (element.task !== task)
-            })
-        }))
+        store.dispatch({
+            type: 'DONE_TODO',
+            task
+        })
     }
 
 }

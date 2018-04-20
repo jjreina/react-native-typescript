@@ -17,6 +17,10 @@ const todoStore = (state = defaultState, action) => {
                 task: action.task
             }])
         })
+    case 'DONE_TODO':
+        return Object.assign({}, state, {
+            todos: state.todos.filter( (todo) => todo.task !== action.task )
+        })
     default:
         return state
     }
