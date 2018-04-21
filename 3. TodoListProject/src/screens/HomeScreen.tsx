@@ -4,6 +4,7 @@ import store from '../todoStore'
 
 interface State {
     todos: any[]
+    filter: string
 }
 
 interface Props {
@@ -26,6 +27,7 @@ export class HomeScreen extends React.Component<Props, State> {
                 onAddStarted={this.onAddStarted}
                 todos={this.state.todos}
                 onClickDone={this.onClickDone}
+                filter={this.state.filter}
             />
         )
     }

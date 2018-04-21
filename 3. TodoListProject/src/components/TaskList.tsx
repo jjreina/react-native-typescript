@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StyleSheet, View, ListView } from 'react-native'
+import { StyleSheet, View, ListView, Switch, Text } from 'react-native'
 import { Button } from 'react-native-elements'
 import { TaskRow } from './TaskRow'
 
@@ -13,13 +13,23 @@ const styles = StyleSheet.create({
     button: {
         borderRadius: 15,
         margin: 20
+    },
+    toggleRow: {
+        flexDirection: 'row',
+        padding: 10
+    },
+    toggleText: {
+        fontSize: 20,
+        paddingLeft: 10,
+        paddingTop: 3
     }
 })
 
 interface Props {
     todos: any[],
     onAddStarted: any,
-    onClickDone: any
+    onClickDone: any,
+    filter
 }
 
 interface State {
@@ -47,6 +57,14 @@ export default class TaskList extends React.Component<Props, State> {
     public render() {
         return (
             <View style={styles.container}>
+                <View style={styles.toggleRow}>
+                    <Switch
+                        value={this.props.filter !== 'pending'}
+                    />
+                    <Text style={styles.toggleText}>
+                        Showing {this.props.todos.length} {this.props.filter} todo(s)
+                    </Text>
+                </View>
                 <ListView
                     dataSource={this.state.dataSource}
                     renderRow={this.renderRow}

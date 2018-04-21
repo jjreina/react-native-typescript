@@ -5,7 +5,8 @@ const defaultState = {
         {
             task: 'Initial todo in store'
         }
-    ]
+    ],
+    filter: 'pending'
 }
 
 const todoStore = (state = defaultState, action) => {
@@ -20,6 +21,11 @@ const todoStore = (state = defaultState, action) => {
     case 'DONE_TODO':
         return Object.assign({}, state, {
             todos: state.todos.filter( (todo) => todo.task !== action.task )
+        })
+    case 'TOGGLE_TATE':
+        const filter = state.filter === 'pending' ? 'done' : 'pending'
+        return Object.assign({}, state, {
+            filter
         })
     default:
         return state
