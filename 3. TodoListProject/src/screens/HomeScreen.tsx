@@ -28,8 +28,15 @@ export class HomeScreen extends React.Component<Props, State> {
                 todos={this.state.todos}
                 onClickDone={this.onClickDone}
                 filter={this.state.filter}
+                onToggle={this.onToggle}
             />
         )
+    }
+
+    private onToggle = () => {
+        store.dispatch({
+            type: 'TOGGLE_TATE'
+        })
     }
 
     private onAddStarted = () => {

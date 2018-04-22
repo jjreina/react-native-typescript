@@ -29,7 +29,8 @@ interface Props {
     todos: any[],
     onAddStarted: any,
     onClickDone: any,
-    filter
+    filter: String,
+    onToggle: any
 }
 
 interface State {
@@ -59,6 +60,7 @@ export default class TaskList extends React.Component<Props, State> {
             <View style={styles.container}>
                 <View style={styles.toggleRow}>
                     <Switch
+                        onValueChange={this.props.onToggle}
                         value={this.props.filter !== 'pending'}
                     />
                     <Text style={styles.toggleText}>
