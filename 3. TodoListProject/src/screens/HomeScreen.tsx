@@ -45,10 +45,10 @@ export class HomeScreen extends React.Component<Props, State> {
           })
     }
 
-    private onClickDone = (task) => {
+    private onClickDone = (todo) => {
         store.dispatch({
             type: 'DONE_TODO',
-            task
+            todo
         })
     }
 

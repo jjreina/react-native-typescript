@@ -51,6 +51,6 @@ export class TaskRow extends React.Component<Props, {}> {
     }
 
     private onClickDone = () => {
-        this.props.onClickDone(this.props.todo.task)
+        this.props.onClickDone(this.props.todo)
     }
 }
