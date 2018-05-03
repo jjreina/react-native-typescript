@@ -1,4 +1,4 @@
-This project was bootstrapped from [AwesomeProject] in this same repository and this one is a basic Todo List project .
+This project was bootstrapped from [AwesomeProject] in this same repository and this one is a basic Todo List project where it is used react-navigation and redux.
 
 After that some setting will be necessary to configure typescript.
 
@@ -11,4 +11,5 @@ After that some setting will be necessary to configure typescript.
 ### `npm run clean`
 ### `npm run build`
 ### `npm run lint`
+### `npm run android`
 
