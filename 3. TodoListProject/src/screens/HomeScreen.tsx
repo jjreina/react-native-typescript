@@ -1,9 +1,10 @@
 import * as React from 'react'
 import TaskList from '../components/TaskList'
 import store from '../todoStore'
+import { TodoEntity } from '../model/todoEntity'
 
 interface State {
-    todos: any[]
+    todos: TodoEntity[]
     filter: string
 }
 

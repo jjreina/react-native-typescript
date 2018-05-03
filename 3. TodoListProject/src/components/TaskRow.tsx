@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Icon } from 'react-native-elements'
+import { TodoEntity } from '../model/todoEntity'
 
 const styles = StyleSheet.create({
     container: {
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
 })
 
 interface Props {
-    todo: any,
+    todo: TodoEntity,
     onClickDone: any
 }
 
